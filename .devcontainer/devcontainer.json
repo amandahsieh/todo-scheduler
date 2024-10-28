@@ -1,7 +1,12 @@
 {
     "name": "Python in Docker",
     "context": "..",
-    "dockerFile": "Dockerfile",  // 修正為正確的路徑
+    "dockerFile": "Dockerfile",
+    "workspaceFolder": "/app",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind,consistency=cached"
+    ],
+    "postStartCommand": "uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000",
     "customizations": {
         "vscode": {
             "settings": {
@@ -11,11 +16,10 @@
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "eamodio.gitlens",  // GitLens
-                "esbenp.prettier-vscode",  // Prettier
-                "ms-azuretools.vscode-docker"  // Docker
+                "eamodio.gitlens",
+                "esbenp.prettier-vscode",
+                "ms-azuretools.vscode-docker"
             ]
         }
-    },
-    "workspaceFolder": "/app"
+    }
 }
