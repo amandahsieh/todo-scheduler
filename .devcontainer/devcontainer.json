@@ -1,0 +1,21 @@
+{
+    "name": "Python in Docker",
+    "context": "..",
+    "dockerFile": "Dockerfile",  // 修正為正確的路徑
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.analysis.extraPaths": ["./backend"]
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "eamodio.gitlens",  // GitLens
+                "esbenp.prettier-vscode",  // Prettier
+                "ms-azuretools.vscode-docker"  // Docker
+            ]
+        }
+    },
+    "workspaceFolder": "/app"
+}
